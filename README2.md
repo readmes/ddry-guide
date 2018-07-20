@@ -1,4 +1,4 @@
-# ddry-guide
+# ddry-guide ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 [![Build Status](https://travis-ci.org/ddry/ddry-guide.svg?branch=master)](https://travis-ci.org/ddry/ddry-guide) [![Coverage Status](https://coveralls.io/repos/github/ddry/ddry-guide/badge.svg?branch=master)](https://coveralls.io/github/ddry/ddry-guide?branch=master) [![dependencies Status](https://david-dm.org/ddry/ddry-guide/status.svg)](https://david-dm.org/ddry/ddry-guide) [![devDependencies Status](https://david-dm.org/ddry/ddry-guide/dev-status.svg)](https://david-dm.org/ddry/ddry-guide?type=dev)
 
@@ -6,7 +6,7 @@
 
 This repo guides you from blank Node JS project to project containing various JS module examples fully covered with [ddry](https://www.npmjs.com/package/ddry) using all of its features. Unified harness-agnostic codebase allows running tests written once on three different test harnesses: [Mocha JS](https://www.npmjs.com/package/mocha), [TAP](https://www.npmjs.com/package/tap) and [Tape JS](https://www.npmjs.com/package/tape). And to start using all these convenient test capabilities you'll need barely more than nothing: add one package to `devDependencies` and create `ddry.json` config file with handy CLI.
 
-### Prerequisites
+### Prerequisites ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 To get access to `ddry`, `ddry-mocha`, `ddry-tap` and `ddry-tape` shell commands install the core package [ddry](https://www.npmjs.com/package/ddry) and its full `devDependencies` support [ddry-mocha-tape](https://www.npmjs.com/package/ddry-mocha-tape) by:
 
@@ -23,7 +23,7 @@ Also this project uses global installation of [CoffeeScript](https://www.npmjs.c
 $ npm i -g coffee-script
 ```
 
-### Getting started
+### Getting started ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Now you're set and ready to follow the easy steps distributed by commits of this repo quite gradually and mostly self-explaining.
 
@@ -68,7 +68,7 @@ Just to say it clearly: at this point we can run our minimum viable spec suite b
 
 And that is where we smoothly come from getting started to main features.
 
-### Convention over configuration spec folder structure
+### Convention over configuration spec folder structure ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Now we have `ddry.json` stating that `spec` is our spec folder and `lib` is our code folder. At the moment the only code module in `lib` is `numbering`, so `spec/numbering` is the folder for this module method specs. We even have `spec/numbering/ordinal.js` file containg the spec of `ordinal` method of this module. Sounds trivially, same as any good convention over configuration. I've heard somewhere that triviality is a backside of wisdom.
 
@@ -96,7 +96,7 @@ Method method()
 
 Notices on missing method specs are not provided.
 
-### Injected ddry instance
+### Injected ddry instance ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 At last, we are in correctly placed spec file of method defined in existent module. First of all, it is a JS module exporting function where first argument is an injected instance of [ddry](https://www.npmjs.com/package/ddry) core module `index.js`.
 
@@ -124,7 +124,7 @@ range()
 
 That output may be handy if you have several spec stubs.
 
-### Plain matcher
+### Plain matcher ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 At this point our mock spec of `ordinal` method is defined this way:
 
@@ -149,23 +149,23 @@ However, some features of `plain` matcher are worth mentioning:
 
 Main purpose of `plain` matcher is supporting the crucial concept that every spec is a normal JS program. Test whatever you get in your usual JS flow, even within [ddry](https://www.npmjs.com/package/ddry) convention-over-configuration context.
 
-### Default matcher
+### Default matcher ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 In [Getting real. Introducing sequences](https://github.com/ddry/ddry-guide/commit/4d809fa31ab69c8c60c29f029c2cf3c1ee63102e) first of all we move from `plain` matcher to `default` one.
 
 It takes `i`, **mandatorily wrapped into array**, applies to current module's current method and asserts that exactly `e` is returned _(Looks like we're back again to convention-over-configuration trivialities)_. It is that much completely clear, that I even see no point to describe **mandatory array wrapping of input** concept any more.
 
-### Sequences
+### Sequences ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 _This is definitely ridiculous (or peculiar at least) that whole this [ddry](https://www.npmjs.com/package/ddry) project containing by now over 2.5k of fully test covered lines of code started from refactoring of `ordinal` method spec._
 
 To prevent any confusion, let's explain the **sequence** word usage a little deeper.
 
-**Specs sequence** is an array of assertion objects received by `dd.drive` method.
+**Specs sequence** is an array of assertion objects received by `dd.drive` method. 
 
 **Sequence spec** is a special assertion object containing mandatory `it` and `data` properties and optional one `from`.
 
-### Sequence specs
+### Sequence specs ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 This way, here
 
@@ -196,7 +196,7 @@ To follow this code fragment's **sequence spec** self-explanation, let's state t
 
 I'm aware of generated assertion messages dangers, and thought many times about removing this feature completely. However, in rare cases **sequence specs** may suddenly become handy. Later we'll explore deeper features of **sequence specs**, but now please note that here only really boring input gets omitted, output is set literally. That slightly mitigates assertion message generation risks.
 
-### Specs sequences. Cross-harness x-style skipping and mass-skipping
+### Specs sequences. Cross-harness x-style skipping and mass-skipping ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Let's use this **specs sequence** to learn about `x`-style skipping. It's easy: `xit` will get the assertion skipped on every test harness. You don't have to care how exactly the assertion is to be marked as pending on every certain test harness (take my word for it, it's very different between them), just `x` it. It's time to reveal that **Mocha** style is followed here fully, and `dd.drive` function recognizes also `specify` and `xspecify` keys.
 
@@ -214,11 +214,11 @@ To summarize sequences topic, take a look at another sequence spec data format [
 
 Also, from this point we'll stop emphasizing sequence specs and spec sequences assuming that differences between them are clear.
 
-### CoffeeScript Sublime Text snippets
+### CoffeeScript Sublime Text snippets ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg) ![references](https://cs.adelaide.edu.au/~christoph/badges/content-references-orange.svg)
 
 Now, when you've hopefully get acquainted with [ddry](https://www.npmjs.com/package/ddry) CoffeeScript code, take a look at [Sublime Text CoffeeScript snippets for ddry](https://github.com/ddry/ddry-sublime-coffee-snippets). We'll be able to install them via `Package Control: Install Package` as soon as my PR gets merged, but at the moment you can manually place them to your User packages.
 
-### Injected target module context — `that`
+### Injected target module context — `that` ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 Within spec file you may access target code module this way:
 
@@ -240,7 +240,7 @@ module.exports = (dd, that) ->
 
 With the power of default matchers set and cross-harness `before` and `after` hooks this is unlikely necessary, but for your JS freestyling you may use the approach you prefer.
 
-### Property matcher
+### Property matcher ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 In [Introducing `property` matcher and cross-harness hooks and context](https://github.com/ddry/ddry-guide/commit/cf4b2862fefac132ea8aae23d3a9ed7ff504b5f8) we meet methods setting the module public properties. Quite self-explaining code
 
@@ -255,7 +255,7 @@ In [Introducing `property` matcher and cross-harness hooks and context](https://
 
 applies `i` to subject method then checks that all the properties of `e` object match the target code module public properties.
 
-### Cross-harness `context`
+### Cross-harness `context` ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 At the same [point](https://github.com/ddry/ddry-guide/commit/cf4b2862fefac132ea8aae23d3a9ed7ff504b5f8) we meet [this](https://github.com/ddry/ddry-guide/commit/cf4b2862fefac132ea8aae23d3a9ed7ff504b5f8#diff-f608b012420cc1d0ac167c8579a74d7d) spec presenting both main cross-harness features — `context` and hooks.
 
@@ -266,7 +266,7 @@ Cross-harness `dd.context`, same as Mocha `context`, takes the context title str
 
 Main purpose of this feature is to avoid stumbling when you need to use the context in your spec code structure on the test harness that does not support context.
 
-### Cross-harness `before` and `after` hooks
+### Cross-harness `before` and `after` hooks ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 At file and commit mentioned above we also can see the cross-harness `before` and `after` hooks. Yet while quite self-explaining, they have some specific features. First of all, both of them are spec object properties which enables them to be shared through specs sequence. So, inside full spec object (with `it` and `i`, `e` or `data`) it will act the same as corresponding Mocha hook, and when used as shared spec object it will act like `before_all` or `after_all` hook.
 
@@ -274,7 +274,7 @@ Another important feature is that inside these special spec object properties us
 
 And again, if you need to organize your JS code flow with `before` and `after` hooks, or even their mass-effect versions, you should not stumble on that some test harness does not support these features. Hooks in general controversies are also not a thing to stumble on.
 
-### Spec helper
+### Spec helper ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 
 First of all, no one can forbid you to `require` anything you need in your spec file — it's a conventional JS module after all, so please freestyle at your comfort as you wish. But to make your spec suite solid and its dependencies accountable you may find spec `helper` quite handy. Define it somewhere outside your set `spec` folder, not like in initially presenting the helper [Introducing spec helper and native Mocha hooks](https://github.com/ddry/ddry-guide/commit/2bde84352db17222ddfe6ab08f7caf0f41f79d1e). It was moved later, please note.
 
@@ -291,7 +291,7 @@ and access its features across all of your specs with `dd.helper`.
 
 _In this guide spec helper implements `forMocha` method to demonstrate native Mocha code inclusion. Looking at this code fragment one can possibly see awkward visibility scopes, `that` meaning `this`, code clarity DRYed out and other reasons to **never** use hooks. However, hooks in general controversy is outside the scope of this guide._
 
-### Deep parameterizer method — `dd.ry`
+### Deep parameterizer method — `dd.ry` ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg) ![references](https://cs.adelaide.edu.au/~christoph/badges/content-references-orange.svg)
 
 Honestly, this whole [ddry](https://www.npmjs.com/package/ddry) thing is highly opinionated, and sometimes its pretending to be outside some general controversies is unbearable. Especially in this highly branded feature description. So, let's look into this list of statements:
 - specs should not be DRY
